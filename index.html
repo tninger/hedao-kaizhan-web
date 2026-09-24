@@ -2305,4 +2305,42 @@ window.MergeWarEconomyV64={read:readEconomySamplesV64,aggregate:()=>C.aggregateE
 window.MergeWarDebug=Object.freeze({snapshot:()=>C.clone(app.state),combatSnapshot:()=>app.combat?C.clone(app.combat):null,ui:()=>({started:app.started,speed:app.speed,paused:app.paused,modal:app.modal,selection:app.selection,mobileView:app.mobileView,mergeCombo:app.mergeCombo,sound:app.sound,coachStep:document.body.dataset.coachStep||null,battleCue:$('battleCue')&&!$('battleCue').hidden?$('battleCueTitle').textContent:null,renderScale:RENDER_SCALE,renderFpsCap:RENDER_FPS_CAP,renderProfile,measuredFps:perfGovernor.lastFps,autoQuality:perfGovernor.auto,assetStatus:A.assetStatus(),platform:P.name(),motionLayer:'v2.9-sheet',animationStatus:A.animationStatus(),visualActors:app.visualActors.size})});
 })();
 </script>
+<style id="mobile-battle-tone-fix">
+@media (max-width:850px){
+  body[data-mobile-view="battle"]{
+    background:
+      radial-gradient(ellipse at 16% 24%,rgba(255,255,255,.20),transparent 24%),
+      linear-gradient(180deg,#65c9f3 0%,#91d8ee 18%,#5fa9c4 43%,#2d7191 69%,#123f5e 100%);
+  }
+  body[data-mobile-view="battle"] .app-shell:after{
+    background:
+      linear-gradient(180deg,transparent,rgba(8,47,72,.34)),
+      radial-gradient(ellipse at 50% 100%,rgba(53,124,150,.30),transparent 68%);
+  }
+  body[data-mobile-view="battle"] .battlefield-panel .panel-heading{
+    border-color:#4d9fc3;
+    background:linear-gradient(180deg,#1b5f83,#0b3d5e);
+    box-shadow:0 6px 14px rgba(5,46,72,.22),inset 0 1px rgba(255,255,255,.16);
+    color:#f5fbff;
+  }
+  body[data-mobile-view="battle"] .battlefield-panel .panel-heading .eyebrow{
+    color:#a9d8eb;
+  }
+  body[data-mobile-view="battle"] .battlefield-panel .panel-heading h2{
+    color:#fff;
+    text-shadow:0 2px 4px rgba(0,32,53,.28);
+  }
+  body[data-mobile-view="battle"] .arena-wrap{
+    background:#357d98;
+  }
+  body[data-mobile-view="battle"] #arena{
+    filter:saturate(1.18) contrast(1.08) brightness(.94);
+  }
+  body[data-mobile-view="battle"] .formation-header h3,
+  body[data-mobile-view="battle"] .formation-header .text-button{
+    color:#173f58;
+    text-shadow:0 1px rgba(255,255,255,.55);
+  }
+}
+</style>
 </body></html>
